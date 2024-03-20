@@ -10,10 +10,10 @@ return (
                 <img src="/MyTinerary.png" sizes="83.34vw" className="h-[auto] w-[41.67%]"></img>
             </div>
             <div className="flex flex-col items-start">
-                <div className="flex gap-[32px] items-center">
+                <div className="flex gap-[32px] items-center justify-around">
                 <Link to="/" className="no-underline focus:outline-none text-[#ffffff] text-opacity-[100%] text-[18px] font-semibold">Home</Link>
                 <Link to="/cities" className="no-underline focus:outline-none text-[#ffffff] text-opacity-[100%] text-[18px] font-semibold">Cities</Link>
-                <img src="/profile.png" sizes="33.34vw" className="w-[16.67%] h-[auto]"></img>
+                <img src="/profile.png" sizes="33.34vw" className="w-[8%] h-[auto]"></img>
                 </div>
             </div>
             </div>

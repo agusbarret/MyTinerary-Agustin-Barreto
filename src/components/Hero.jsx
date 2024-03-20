@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
     <section className="pt-[140px] pb-[140px] bg-no-repeat opacity-[100%] bg-cover bg-top bg-[url('travel-hero.jpg')]">
@@ -8,7 +10,9 @@ const Hero = () => {
             <p className="text-center max-w-[640px] text-[24px] font-semibold text-white">Find your perfect trip, designed by insiders who know and love their cities</p>
             <div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-[12px] pb-[10px]">
             <button type="button" className="text-white border-solid text-[14px] rounded-[8px] pt-[10px] pb-[10px] pr-[20px] pl-[20px] bg-opacity-[100%] shadow-lg bg-[#2d2d38]">
+                <Link to="/cities">
                 <span className="text-[18px] font-semibold">Your Perfect Trip Starts Here!</span>
+                </Link>
             </button>
             </div>
         </div>
