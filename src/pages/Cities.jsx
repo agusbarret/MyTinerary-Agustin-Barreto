@@ -1,30 +1,35 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { getCities } from "../services/citiesQueries";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { filterByName, loadCities } from "../redux/actions/citiesActions";
+
 
 const Cities = () => {
-    const [cities, setCities] = useState([]);
-    const [filtered, setFiltered] = useState([]);
+    
+    const dispatch = useDispatch( )
     const inputSearch = useRef(null);
 
-    useEffect(() => {
-        getCities().then((data) => {
-            setCities(data.data);
-            setFiltered(data.data);
-        });
-    }, []);
-    console.log(filtered);
+    const {citiesAll, citiesFiltered, search} = useSelector((store) => {
+        // console.log("Cities All:", store.cities.citiesAll);
+        // console.log("Cities Filtered:", store.cities.citiesFiltered);
+        // console.log("Search:", store.cities.search);
+        return store.cities;
+    });
 
-    const handleInput = () => {
-        const aux = filterByName(cities, inputSearch.current.value);
-        setFiltered(aux);
-    };
-    
-    const filterByName = (listCities, value) => {
-        return listCities.filter((city) =>
-            city.name.toLowerCase().startsWith(value.toLowerCase())
-        );
-    };
+    useEffect(() => {
+        if (citiesAll.length == 0) {
+            getCities().then((data) => {
+                dispatch( loadCities( data ));
+            });
+        }
+    }, []);
+
+    function handleInput() {
+        // console.log("Input value:", inputSearch.current.value);
+        dispatch(filterByName(inputSearch.current.value));
+    }
+
 
     return (
         <>
@@ -44,6 +49,7 @@ const Cities = () => {
                                             className="w-3/4 rounded text-black border border-black"
                                             onInput={handleInput}
                                             ref={inputSearch}
+                                            defaultValue={search}
                                         ></input>
                                     </search>
                                 </section>
@@ -54,8 +60,8 @@ const Cities = () => {
             </section>
             <section className="pt-[140px] pb-[140px] flex flex-col bg-[#2d2d38] bg-opacity-[80%]">
                 <div className="flex flex-wrap justify-center bg-[#2d2d38] ">
-                    {filtered.length > 0 &&
-                        filtered.map((city) => (
+                    {citiesFiltered.length > 0 &&
+                        citiesFiltered.map((city) => (
                             <div
                                 key={city._id}
                                 className="flex-shrink-0 w-64 p-4"
