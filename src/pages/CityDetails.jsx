@@ -55,7 +55,7 @@ const CityDetails = () => {
                     <div className="bg-opacity-70% bg-[#2d2d38] rounded-[12px] pt-[20px] pl-[30px] pr-[30px] pb-[19px]">
                         <div className="flex flex-col">
                             <h1 className="text-48px font-bold text-white">
-                                Paris
+                                {city.name}
                             </h1>
                         </div>
                     </div>
