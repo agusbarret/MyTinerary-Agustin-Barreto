@@ -13,7 +13,7 @@ return (
                 <div className="flex gap-[32px] items-center justify-around">
                 <Link to="/" className="no-underline focus:outline-none text-[#ffffff] text-opacity-[100%] text-[18px] font-semibold">Home</Link>
                 <Link to="/cities" className="no-underline focus:outline-none text-[#ffffff] text-opacity-[100%] text-[18px] font-semibold">Cities</Link>
-                <img src="/profile.png" sizes="33.34vw" className="w-[8%] h-[auto]"></img>
+                <Link to="/SignUp" className="w-[8%] h-[auto]"><img src="/profile.png" sizes="33.34vw"></img></Link>
                 </div>
             </div>
             </div>
