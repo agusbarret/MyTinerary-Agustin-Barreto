@@ -28,7 +28,7 @@ export const LogIn = () => {
     authQueries.login(aux).then((response) => {
       console.log(response);
       if (response.status == 200) {
-        alerts.success("Welcome" + response.data.first_name);
+        alerts.success("Welcome " + response.data.first_name);
         navigate("/");
       } else {
         alerts.warn(response.statusMsg);

@@ -107,9 +107,13 @@ function SignUp() {
                         <select
                             name="country"
                             className="w-full bg-white rounded border border-gray-300 py-1 px-3"
-                            defaultValue={formData.country}
+                            defaultValue="Select a country"
                             required
                         >
+                            <option 
+                            value="Select a country" disabled>
+                                Select a country
+                            </option>
                             {countries.length > 0 &&
                                 countries.map((country) => (
                                     <option key={country} value={country}>
