@@ -14,6 +14,7 @@ const Carousel = () => {
 
     return (
         <div className="flex w-[100%] max-w-[1280px] mr-[auto] ml-[auto] bg-opacity-[100%] bg-[#2d2d38] flex-wrap justify-center items-center pr-[50px] pl-[50px] pt-[50px] pb-[50px] rounded-[12px] gap-[40px]">
+            <h1 className="font-bold text-center text-4xl text-zinc-50">Popular Mytineraries</h1>
             <div className="flex items-center justify-between mb-4">
                 <button
                     className="block bg-[#ffffff] pl-[3px] pr-[3px] bg-opacity-[10%] pb-[90px] pt-[90px] rounded-[6px] left-[19%]"
