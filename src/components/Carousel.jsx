@@ -2,15 +2,23 @@ import { useState } from "react";
 import { cities } from "../data/data";
 const Carousel = () => {
 
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [slideIndex, setSlideIndex] = useState(0);
+    
+    const slides = [
+        cities.slice(0, 4),
+        cities.slice(4, 8),
+        cities.slice(8, 12)
+    ];
 
     const handlePrevious = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 4 + cities.length ) % cities.length);
+        setSlideIndex((prevIndex) => (prevIndex - 1 + 3) % 3);
     };
 
     const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 4) % cities.length);
+        setSlideIndex((prevIndex) => (prevIndex + 1) % 3);
     };
+
+    
 
     return (
         <div className="flex w-[100%] max-w-[1280px] mr-[auto] ml-[auto] bg-opacity-[100%] bg-[#2d2d38] flex-wrap justify-center items-center pr-[50px] pl-[50px] pt-[50px] pb-[50px] rounded-[12px] gap-[40px]">
@@ -27,8 +35,8 @@ const Carousel = () => {
                     </i>
                 </button>
                 <div className="flex bg-[#2d2d38] ">
-                    {cities.slice(currentIndex, currentIndex + 4).map((city, index) => (
-                        <div key={index} className="flex-shrink-0 w-64 p-4">
+                    {slides[slideIndex].map((city) => (
+                        <div key={city.name} className="flex-shrink-0 w-64 p-4">
                             <div className="bg-white shadow-lg rounded-lg p-6">
                                     <img
                                         src={city.image}
